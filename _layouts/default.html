@@ -16,6 +16,20 @@
 	</noscript>
 	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	<script>
+	/**
+	* Function that tracks a click on an outbound link in Google Analytics.
+	* This function takes a valid URL string as an argument, and uses that URL string
+	* as the event label.
+	*/
+	var trackOutboundLink = function(url) {
+	   ga('send', 'event', 'outbound', 'click', url, {'hitCallback':
+	     function () {
+	     document.location = url;
+	     }
+	   });
+	}
+	</script>
     </head>
     <body class="loading">
 
@@ -28,10 +42,10 @@
 		<p>Software Engineer at Adobe &nbsp;&bull;&nbsp; Snowboarder, Sailer and Springboard Diver</p>
 		<nav>
 			<ul>
-				<li><a href="https://twitter.com/robert_mccubbin" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-				<li><a href="https://www.facebook.com/rmccubbin" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-				<li><a href="https://github.com/rmccubbin" class="icon fa-github"><span class="label">Github</span></a></li>
-				<li><a href="https://uk.linkedin.com/in/rmccubbin" class="icon fa-linkedin"><span class="label">Linked In</span></a></li>
+				<li><a href="https://twitter.com/robert_mccubbin" onclick="trackOutboundLink('https://twitter.com/robert_mccubbin'); return false;" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="https://www.facebook.com/rmccubbin" onclick="trackOutboundLink('https://www.facebook.com/rmccubbin'); return false;" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="https://github.com/rmccubbin" onclick="trackOutboundLink('https://github.com/rmccubbin'); return false;" class="icon fa-github"><span class="label">Github</span></a></li>
+				<li><a href="https://uk.linkedin.com/in/rmccubbin" onclick="trackOutboundLink('https://uk.linkedin.com/in/rmccubbin'); return false;" class="icon fa-linkedin"><span class="label">Linked In</span></a></li>
 			</ul>
 		</nav>
             </header>
